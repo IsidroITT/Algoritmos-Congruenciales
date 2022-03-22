@@ -146,7 +146,7 @@ public class algoritmosCongruenciales {
     }
 
     public static void main(String[] args) {
-        algoritmosCongruenciales z = new algoritmosCongruenciales(10);
+        algoritmosCongruenciales z = new algoritmosCongruenciales(1005);
         int[] w = new int[z.cantidad];
         w[0] = 21;
         w[1] = 68;
@@ -175,9 +175,7 @@ public class algoritmosCongruenciales {
 
         System.out.println("----- ALGORTIMO CONGRUENCIAL ADITIVO -----");
         z.AlgortimoCongruencialAditivo(w,8,5);
-        //z.quick(z.numGenerados);
+        z.quick(z.numGenerados);
         z.mostrarNum();
-
     }
-
 }

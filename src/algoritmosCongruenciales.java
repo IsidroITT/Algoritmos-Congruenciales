@@ -10,6 +10,7 @@ public class algoritmosCongruenciales {
         this.numGenerados = new float[cant];
     }
 
+    //Algoritmo lineal para la generacion de numeros pseudoaleatorios
     public float[] AlgoritmoLineal(long x0, int k, int c, int g) {
         long a = 1 + (4 * k);
         long m = (long) Math.pow(2, g);
@@ -56,7 +57,22 @@ public class algoritmosCongruenciales {
         }
         return numGenerados;
     }
-
+    
+    //Algoritmo NO lineal para la generacion de numeros pseudoaleatorios
+    public float[] AlgortimoNOLineal(long x, int a,int b, int c, int g){
+        if((b-1)%4 != 1) return null;
+        long m = (long) Math.pow(2, g);
+        for (int i = 0; i < cantidad; i++) {
+            long multiplicacion = (long) (((a * Math.pow(x, 2)))+(b*x)+c) ;//Realiza la multiplicaicon de los valores resultantes de a y la semilla(x0) y agrega la constante aditiva
+            long mod = multiplicacion % m;//Devuelve el modulo resultante entre la multiplicacion y el valor de m
+            System.out.println("MOD: "+mod);
+            double r = (double) mod / (m-1);//obtener el numero pseudoaleatorio
+            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            numGenerados[i] = (float) ri;//agrega el numero generado al areglo de numGenerados
+            x = mod;
+        }
+        return numGenerados;
+    }
     
     //---------------------------------------------------------------------------------------------------------------------------------------
     //Metodos de ordenamiento, muestra y comporbacion de valores repetidos
@@ -115,16 +131,26 @@ public class algoritmosCongruenciales {
     }
 
     public static void main(String[] args) {
-        algoritmosCongruenciales z = new algoritmosCongruenciales(1000);
+        algoritmosCongruenciales z = new algoritmosCongruenciales(10);
 
-        System.out.println("----- ALGORTIMO LINEAL -----");
-        z.AlgoritmoLineal(50, 39, 1028, 10);
-        z.quick(z.numGenerados);
-        z.mostrarNum();
-
-        System.out.println("----- ALGORTIMO MULTIPLICATIVO -----");
-        z.AlgoritmoMultiplicativo38(177, 15, 9);
-        z.quick(z.numGenerados);
+//        System.out.println("----- ALGORTIMO LINEAL -----");
+//        z.AlgoritmoLineal(50, 39, 1028, 10);
+//        z.quick(z.numGenerados);
+//        z.mostrarNum();
+//
+//        System.out.println("----- ALGORTIMO MULTIPLICATIVO 38 -----");
+//        z.AlgoritmoMultiplicativo38(177, 15, 9);
+//        z.quick(z.numGenerados);
+//        z.mostrarNum();
+//        
+//        System.out.println("----- ALGORTIMO MULTIPLICATIVO 58 -----");
+//        z.AlgoritmoMultiplicativo58(177, 15, 9);
+//        z.quick(z.numGenerados);
+//        z.mostrarNum();
+        
+        System.out.println("----- ALGORTIMO NO LINEAL -----");
+        z.AlgortimoNOLineal(49, 58, 34, 49, 8);
+        //z.quick(z.numGenerados);
         z.mostrarNum();
 
     }

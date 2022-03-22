@@ -6,10 +6,37 @@ public class algoritmosCongruenciales {
     private long[] modGenerados;
     private float numRep;
 
+    //Constructor
     public algoritmosCongruenciales(int cant) {
         this.cantidad = cant;
         this.numGenerados = new float[cant];
         this.modGenerados = new long[cant];
+    }
+
+     //Get y Set
+    public int getCantidad() {
+        return cantidad;
+    }
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    public float[] getNumGenerados() {
+        return numGenerados;
+    }
+    public void setNumGenerados(float[] numGenerados) {
+        this.numGenerados = numGenerados;
+    }
+    public long[] getModGenerados() {
+        return modGenerados;
+    }
+    public void setModGenerados(long[] modGenerados) {
+        this.modGenerados = modGenerados;
+    }
+    public float getNumRep() {
+        return numRep;
+    }
+    public void setNumRep(float numRep) {
+        this.numRep = numRep;
     }
 
     //Algoritmo lineal para la generacion de numeros pseudoaleatorios

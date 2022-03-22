@@ -57,29 +57,44 @@ public class algoritmosCongruenciales {
         }
         return numGenerados;
     }
-    
+
     //Algoritmo NO lineal para la generacion de numeros pseudoaleatorios
-    public float[] AlgortimoNOLineal(long x, int a,int b, int c, int g){
-        if((b-1)%4 != 1) return null;
+    public float[] AlgortimoNOLineal(long x, int a, int b, int c, int g) {
         long m = (long) Math.pow(2, g);
         for (int i = 0; i < cantidad; i++) {
-            long multiplicacion = (long) (((a * Math.pow(x, 2)))+(b*x)+c) ;//Realiza la multiplicaicon de los valores resultantes de a y la semilla(x0) y agrega la constante aditiva
+            long multiplicacion = (long) (((a * Math.pow(x, 2))) + (b * x) + c);//Realiza la multiplicaicon de los valores resultantes de a y la semilla(x0) y agrega la constante aditiva
             long mod = multiplicacion % m;//Devuelve el modulo resultante entre la multiplicacion y el valor de m
-            System.out.println("MOD: "+mod);
-            double r = (double) mod / (m-1);//obtener el numero pseudoaleatorio
+            System.out.println("MOD: " + mod);
+            double r = (double) mod / (m - 1);//obtener el numero pseudoaleatorio
             double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;//agrega el numero generado al areglo de numGenerados
             x = mod;
         }
         return numGenerados;
     }
-    
+
+    //Algortimo congruencial aditivo para la generacion de numeros pseudoaleatorios
+    public float[] AlgortimoCongruencialAditivo(int[] num, int g, int pos) {
+        long m = (long) Math.pow(2, g);
+        for (int i = 0; pos < cantidad; i++) {
+            int suma = num[i]+num[pos-1];
+            int mod = (int) (suma % m);
+            num[pos] = mod;
+            double r = (double) mod / (m-1);//obtener el numero pseudoaleatorio
+            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            numGenerados[i] = (float) ri;
+            pos++;
+        }
+        return numGenerados;
+    }
+
     //---------------------------------------------------------------------------------------------------------------------------------------
     //Metodos de ordenamiento, muestra y comporbacion de valores repetidos
     //Ordenar
     public void quick(float[] arreglo) {
         quicksort(arreglo, 0, arreglo.length - 1);
     }
+
     private static void quicksort(float A[], int izq, int der) {
         float pivote = A[izq]; // tomamos primer elemento como pivote
         int i = izq;         // i realiza la búsqueda de izquierda a derecha
@@ -132,7 +147,12 @@ public class algoritmosCongruenciales {
 
     public static void main(String[] args) {
         algoritmosCongruenciales z = new algoritmosCongruenciales(10);
-
+        int[] w = new int[z.cantidad];
+        w[0] = 21;
+        w[1] = 68;
+        w[2] = 54;
+        w[3] = 73;
+        w[4] = 90;
 //        System.out.println("----- ALGORTIMO LINEAL -----");
 //        z.AlgoritmoLineal(50, 39, 1028, 10);
 //        z.quick(z.numGenerados);
@@ -147,9 +167,14 @@ public class algoritmosCongruenciales {
 //        z.AlgoritmoMultiplicativo58(177, 15, 9);
 //        z.quick(z.numGenerados);
 //        z.mostrarNum();
-        
-        System.out.println("----- ALGORTIMO NO LINEAL -----");
-        z.AlgortimoNOLineal(49, 58, 34, 49, 8);
+//        
+//        System.out.println("----- ALGORTIMO NO LINEAL -----");
+//        z.AlgortimoNOLineal(49, 58, 34, 49, 8);
+//        z.quick(z.numGenerados);
+//        z.mostrarNum();//        
+
+        System.out.println("----- ALGORTIMO CONGRUENCIAL ADITIVO -----");
+        z.AlgortimoCongruencialAditivo(w,8,5);
         //z.quick(z.numGenerados);
         z.mostrarNum();
 

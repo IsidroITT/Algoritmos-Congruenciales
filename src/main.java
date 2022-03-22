@@ -61,7 +61,7 @@ public class main extends javax.swing.JFrame {
         lblInfo.setText("Seleccione el metodo de generacion de numeros aleatorios");
 
         btnA_Aditivo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        btnA_Aditivo.setText("ADITIVO");
+        btnA_Aditivo.setText("CUADRATICO");
         btnA_Aditivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnA_AditivoActionPerformed(evt);
@@ -122,8 +122,8 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnA_NoLinealActionPerformed
 
     private void btnA_AditivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA_AditivoActionPerformed
-        A_Aditivo AA = new A_Aditivo();
-        AA.setVisible(true);
+        A_Cuadratico AC = new A_Cuadratico();
+        AC.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnA_AditivoActionPerformed
 

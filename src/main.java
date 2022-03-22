@@ -14,6 +14,8 @@ public class main extends javax.swing.JFrame {
      */
     public main() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

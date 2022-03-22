@@ -14,6 +14,8 @@ public class A_NoLineal extends javax.swing.JFrame {
      */
     public A_NoLineal() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

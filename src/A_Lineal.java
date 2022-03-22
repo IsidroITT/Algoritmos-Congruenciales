@@ -14,6 +14,8 @@ public class A_Lineal extends javax.swing.JFrame {
      */
     public A_Lineal() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

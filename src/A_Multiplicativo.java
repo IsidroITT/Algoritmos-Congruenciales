@@ -14,6 +14,8 @@ public class A_Multiplicativo extends javax.swing.JFrame {
      */
     public A_Multiplicativo() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

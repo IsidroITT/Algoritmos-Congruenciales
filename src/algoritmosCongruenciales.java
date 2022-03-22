@@ -204,9 +204,9 @@ public class algoritmosCongruenciales {
 //        z.quick(z.numGenerados);
 //        z.mostrarNum();//        
 
-        System.out.println("----- ALGORTIMO CONGRUENCIAL ADITIVO -----");
+        System.out.println("----- ALGORTIMO CUADRATICO -----");
         z.AlgortimoCuadratico(25, 16);
-        //z.quick(z.numGenerados);
+        z.quick(z.numGenerados);
         z.mostrarNum();
     }
 }

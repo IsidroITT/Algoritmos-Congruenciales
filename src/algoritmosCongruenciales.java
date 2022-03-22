@@ -13,28 +13,35 @@ public class algoritmosCongruenciales {
         this.modGenerados = new long[cant];
     }
 
-     //Get y Set
+    //Get y Set
     public int getCantidad() {
         return cantidad;
     }
+
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
     public float[] getNumGenerados() {
         return numGenerados;
     }
+
     public void setNumGenerados(float[] numGenerados) {
         this.numGenerados = numGenerados;
     }
+
     public long[] getModGenerados() {
         return modGenerados;
     }
+
     public void setModGenerados(long[] modGenerados) {
         this.modGenerados = modGenerados;
     }
+
     public float getNumRep() {
         return numRep;
     }
+
     public void setNumRep(float numRep) {
         this.numRep = numRep;
     }
@@ -103,17 +110,17 @@ public class algoritmosCongruenciales {
     }
 
     //Algortimo congruencial aditivo para la generacion de numeros pseudoaleatorios
-    public float[] AlgortimoCongruencialAditivo(int[] num, int g, int pos) {
+    public float[] AlgortimoCuadratico(int x, int g) {
         long m = (long) Math.pow(2, g);
-        for (int i = 0; pos < cantidad; i++) {
-            int suma = num[i] + num[pos - 1];
-            int mod = (int) (suma % m);
+        for (int i = 0; i < cantidad; i++) {
+            long mutliplicacion = (long) Math.pow(x, 2);
+            int mod = (int) (mutliplicacion % m);
             modGenerados[i] = mod;
-            num[pos] = mod;
+            x = mod;
+
             double r = (double) mod / (m - 1);//obtener el numero pseudoaleatorio
             double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;
-            pos++;
         }
         return numGenerados;
     }
@@ -176,13 +183,7 @@ public class algoritmosCongruenciales {
     }
 
     public static void main(String[] args) {
-        algoritmosCongruenciales z = new algoritmosCongruenciales(1005);
-        int[] w = new int[z.cantidad];
-        w[0] = 219;
-        w[1] = 686;
-        w[2] = 544;
-        w[3] = 731;
-        w[4] = 907;
+        algoritmosCongruenciales z = new algoritmosCongruenciales(10);
 //        System.out.println("----- ALGORTIMO LINEAL -----");
 //        z.AlgoritmoLineal(50, 39, 1028, 10);
 //        z.quick(z.numGenerados);
@@ -204,7 +205,7 @@ public class algoritmosCongruenciales {
 //        z.mostrarNum();//        
 
         System.out.println("----- ALGORTIMO CONGRUENCIAL ADITIVO -----");
-        z.AlgortimoCongruencialAditivo(w, 10, 5);
+        z.AlgortimoCuadratico(25, 16);
         //z.quick(z.numGenerados);
         z.mostrarNum();
     }

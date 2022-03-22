@@ -28,10 +28,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="btnCuadrados" alignment="1" pref="274" max="32767" attributes="0"/>
-                          <Component id="btnProductos" alignment="1" max="32767" attributes="0"/>
-                          <Component id="btnConstante" max="32767" attributes="0"/>
-                          <Component id="btnConstante1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnA_Lineal" alignment="1" pref="274" max="32767" attributes="0"/>
+                          <Component id="btnA_Multiplicativo" alignment="1" max="32767" attributes="0"/>
+                          <Component id="btnA_NoLineal" max="32767" attributes="0"/>
+                          <Component id="btnA_Aditivo" alignment="1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
@@ -46,20 +46,20 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lblInfo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnCuadrados" min="-2" max="-2" attributes="0"/>
+              <Component id="btnA_Lineal" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="btnProductos" min="-2" max="-2" attributes="0"/>
+              <Component id="btnA_Multiplicativo" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="btnConstante" min="-2" max="-2" attributes="0"/>
+              <Component id="btnA_NoLineal" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="btnConstante1" min="-2" max="-2" attributes="0"/>
+              <Component id="btnA_Aditivo" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnCuadrados">
+    <Component class="javax.swing.JButton" name="btnA_Lineal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="18" style="1"/>
@@ -67,10 +67,10 @@
         <Property name="text" type="java.lang.String" value="LINEAL"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCuadradosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA_LinealActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnProductos">
+    <Component class="javax.swing.JButton" name="btnA_Multiplicativo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="18" style="1"/>
@@ -78,10 +78,10 @@
         <Property name="text" type="java.lang.String" value="MULTIPLICATIVO"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProductosActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA_MultiplicativoActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnConstante">
+    <Component class="javax.swing.JButton" name="btnA_NoLineal">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="18" style="1"/>
@@ -89,7 +89,7 @@
         <Property name="text" type="java.lang.String" value="NO LINEAL"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConstanteActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA_NoLinealActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblInfo">
@@ -100,7 +100,7 @@
         <Property name="text" type="java.lang.String" value="Seleccione el metodo de generacion de numeros aleatorios"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnConstante1">
+    <Component class="javax.swing.JButton" name="btnA_Aditivo">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="sansserif" size="18" style="1"/>
@@ -108,7 +108,7 @@
         <Property name="text" type="java.lang.String" value="ADITIVO"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConstante1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnA_AditivoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -25,46 +25,46 @@ public class main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCuadrados = new javax.swing.JButton();
-        btnProductos = new javax.swing.JButton();
-        btnConstante = new javax.swing.JButton();
+        btnA_Lineal = new javax.swing.JButton();
+        btnA_Multiplicativo = new javax.swing.JButton();
+        btnA_NoLineal = new javax.swing.JButton();
         lblInfo = new javax.swing.JLabel();
-        btnConstante1 = new javax.swing.JButton();
+        btnA_Aditivo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnCuadrados.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        btnCuadrados.setText("LINEAL");
-        btnCuadrados.addActionListener(new java.awt.event.ActionListener() {
+        btnA_Lineal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        btnA_Lineal.setText("LINEAL");
+        btnA_Lineal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCuadradosActionPerformed(evt);
+                btnA_LinealActionPerformed(evt);
             }
         });
 
-        btnProductos.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        btnProductos.setText("MULTIPLICATIVO");
-        btnProductos.addActionListener(new java.awt.event.ActionListener() {
+        btnA_Multiplicativo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        btnA_Multiplicativo.setText("MULTIPLICATIVO");
+        btnA_Multiplicativo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProductosActionPerformed(evt);
+                btnA_MultiplicativoActionPerformed(evt);
             }
         });
 
-        btnConstante.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        btnConstante.setText("NO LINEAL");
-        btnConstante.addActionListener(new java.awt.event.ActionListener() {
+        btnA_NoLineal.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        btnA_NoLineal.setText("NO LINEAL");
+        btnA_NoLineal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConstanteActionPerformed(evt);
+                btnA_NoLinealActionPerformed(evt);
             }
         });
 
         lblInfo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         lblInfo.setText("Seleccione el metodo de generacion de numeros aleatorios");
 
-        btnConstante1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        btnConstante1.setText("ADITIVO");
-        btnConstante1.addActionListener(new java.awt.event.ActionListener() {
+        btnA_Aditivo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        btnA_Aditivo.setText("ADITIVO");
+        btnA_Aditivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConstante1ActionPerformed(evt);
+                btnA_AditivoActionPerformed(evt);
             }
         });
 
@@ -77,10 +77,10 @@ public class main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnCuadrados, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-                            .addComponent(btnProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConstante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnConstante1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnA_Lineal, javax.swing.GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
+                            .addComponent(btnA_Multiplicativo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnA_NoLineal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnA_Aditivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(169, 169, 169))
                     .addComponent(lblInfo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -90,40 +90,42 @@ public class main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblInfo)
                 .addGap(18, 18, 18)
-                .addComponent(btnCuadrados)
+                .addComponent(btnA_Lineal)
                 .addGap(26, 26, 26)
-                .addComponent(btnProductos)
+                .addComponent(btnA_Multiplicativo)
                 .addGap(27, 27, 27)
-                .addComponent(btnConstante)
+                .addComponent(btnA_NoLineal)
                 .addGap(27, 27, 27)
-                .addComponent(btnConstante1)
+                .addComponent(btnA_Aditivo)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCuadradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuadradosActionPerformed
-        CuadradosMedios c = new CuadradosMedios();
-        c.setVisible(true);
+    private void btnA_LinealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA_LinealActionPerformed
+        A_Lineal AL = new A_Lineal();
+        AL.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnCuadradosActionPerformed
+    }//GEN-LAST:event_btnA_LinealActionPerformed
 
-    private void btnProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProductosActionPerformed
-        ProductosMedios p = new ProductosMedios();
-        p.setVisible(true);
+    private void btnA_MultiplicativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA_MultiplicativoActionPerformed
+        A_Multiplicativo AM = new A_Multiplicativo();
+        AM.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnProductosActionPerformed
+    }//GEN-LAST:event_btnA_MultiplicativoActionPerformed
 
-    private void btnConstanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConstanteActionPerformed
-        MultiplicadorConstante c = new MultiplicadorConstante();
-        c.setVisible(true);
+    private void btnA_NoLinealActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA_NoLinealActionPerformed
+        A_NoLineal ANL = new A_NoLineal();
+        ANL.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnConstanteActionPerformed
+    }//GEN-LAST:event_btnA_NoLinealActionPerformed
 
-    private void btnConstante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConstante1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConstante1ActionPerformed
+    private void btnA_AditivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA_AditivoActionPerformed
+        A_Aditivo AA = new A_Aditivo();
+        AA.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnA_AditivoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,10 +163,10 @@ public class main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConstante;
-    private javax.swing.JButton btnConstante1;
-    private javax.swing.JButton btnCuadrados;
-    private javax.swing.JButton btnProductos;
+    private javax.swing.JButton btnA_Aditivo;
+    private javax.swing.JButton btnA_Lineal;
+    private javax.swing.JButton btnA_Multiplicativo;
+    private javax.swing.JButton btnA_NoLineal;
     private javax.swing.JLabel lblInfo;
     // End of variables declaration//GEN-END:variables
 }

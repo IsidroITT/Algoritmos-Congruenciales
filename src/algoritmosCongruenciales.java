@@ -55,7 +55,7 @@ public class algoritmosCongruenciales {
             long mod = multiplicacion % m;//Devuelve el modulo resultante entre la multiplicacion y el valor de m
             modGenerados[i] = mod;
             double r = (double) mod / c;//obtener el numero pseudoaleatorio
-            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            double ri = Math.round(r * 10000) / 10000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;//agrega el numero generado al areglo de numGenerados
             x0 = mod;
         }
@@ -71,7 +71,7 @@ public class algoritmosCongruenciales {
             long mod = multiplicacion % m;//Devuelve el modulo resultante entre la multiplicacion y el valor de m
             modGenerados[i] = mod;
             double r = (double) mod / (m - 1);//obtener el numero pseudoaleatorio
-            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            double ri = Math.round(r * 10000) / 10000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;//agrega el numero generado al areglo de numGenerados
             xi = mod;
         }
@@ -87,7 +87,7 @@ public class algoritmosCongruenciales {
             long mod = multiplicacion % m;//Devuelve el modulo resultante entre la multiplicacion y el valor de m
             modGenerados[i] = mod;
             double r = (double) mod / (m - 1);//obtener el numero pseudoaleatorio
-            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            double ri = Math.round(r * 10000) / 10000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;//agrega el numero generado al areglo de numGenerados
             xi = mod;
         }
@@ -102,7 +102,7 @@ public class algoritmosCongruenciales {
             long mod = multiplicacion % m;//Devuelve el modulo resultante entre la multiplicacion y el valor de m
             modGenerados[i] = mod;
             double r = (double) mod / (m - 1);//obtener el numero pseudoaleatorio
-            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            double ri = Math.round(r * 10000) / 10000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;//agrega el numero generado al areglo de numGenerados
             x = mod;
         }
@@ -119,7 +119,7 @@ public class algoritmosCongruenciales {
             x = mod;
 
             double r = (double) mod / (m - 1);//obtener el numero pseudoaleatorio
-            double ri = Math.round(r * 100000) / 100000d;//Obtiene 5 digitos del numero "aleatorio"
+            double ri = Math.round(r * 10000) / 10000d;//Obtiene 5 digitos del numero "aleatorio"
             numGenerados[i] = (float) ri;
         }
         return numGenerados;
@@ -183,26 +183,26 @@ public class algoritmosCongruenciales {
     }
 
     public static void main(String[] args) {
-        algoritmosCongruenciales z = new algoritmosCongruenciales(10);
-//        System.out.println("----- ALGORTIMO LINEAL -----");
-//        z.AlgoritmoLineal(50, 39, 1028, 10);
-//        z.quick(z.numGenerados);
-//        z.mostrarNum();
-//
-//        System.out.println("----- ALGORTIMO MULTIPLICATIVO 38 -----");
-//        z.AlgoritmoMultiplicativo38(177, 15, 9);
-//        z.quick(z.numGenerados);
-//        z.mostrarNum();
-//        
-//        System.out.println("----- ALGORTIMO MULTIPLICATIVO 58 -----");
-//        z.AlgoritmoMultiplicativo58(177, 15, 9);
-//        z.quick(z.numGenerados);
-//        z.mostrarNum();
-//        
-//        System.out.println("----- ALGORTIMO NO LINEAL -----");
-//        z.AlgortimoNOLineal(49, 58, 34, 49, 8);
-//        z.quick(z.numGenerados);
-//        z.mostrarNum();//        
+        algoritmosCongruenciales z = new algoritmosCongruenciales(100);
+        System.out.println("----- ALGORTIMO LINEAL -----");
+        z.AlgoritmoLineal(50, 39, 1028, 10);
+        z.quick(z.numGenerados);
+        z.mostrarNum();
+
+        System.out.println("----- ALGORTIMO MULTIPLICATIVO 38 -----");
+        z.AlgoritmoMultiplicativo38(177, 15, 9);
+        z.quick(z.numGenerados);
+        z.mostrarNum();
+        
+        System.out.println("----- ALGORTIMO MULTIPLICATIVO 58 -----");
+        z.AlgoritmoMultiplicativo58(177, 15, 9);
+        z.quick(z.numGenerados);
+        z.mostrarNum();
+        
+        System.out.println("----- ALGORTIMO NO LINEAL -----");
+        z.AlgortimoNOLineal(49, 58, 34, 49, 8);
+        z.quick(z.numGenerados);
+        z.mostrarNum();//        
 
         System.out.println("----- ALGORTIMO CUADRATICO -----");
         z.AlgortimoCuadratico(25, 16);

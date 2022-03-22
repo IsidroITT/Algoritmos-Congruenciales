@@ -1,3 +1,8 @@
+
+import static javax.swing.JOptionPane.showInputDialog;
+import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.JTextPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,6 +14,10 @@
  */
 public class A_Multiplicativo extends javax.swing.JFrame {
 
+    private algoritmosCongruenciales generadorM38;
+    private float[] cuadrados;
+    private long[] mod;
+
     /**
      * Creates new form A_Multiplicativo
      */
@@ -16,6 +25,17 @@ public class A_Multiplicativo extends javax.swing.JFrame {
         initComponents();
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        btnOrdenar.setVisible(false);
+        try{
+            String numGen = showInputDialog(this,"Cuantos numeros desea generar");
+            while (Integer.parseInt(numGen) < 20){
+                showMessageDialog(this,"La cantidad de numeros a generar es demaciado chica, prueba una cantidad mas grande");
+                numGen = showInputDialog(this,"Cuantos numeros desea generar");
+            }
+            generadorM38 = new algoritmosCongruenciales(Integer.parseInt(numGen));
+        }catch(NumberFormatException e){
+            showMessageDialog(this,"Solo es posible ingresar numeros");
+        }
     }
 
     /**
@@ -29,6 +49,18 @@ public class A_Multiplicativo extends javax.swing.JFrame {
 
         btnVolver = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        txtG = new javax.swing.JTextField();
+        lblInfoSemilla = new javax.swing.JLabel();
+        btnOrdenar = new javax.swing.JButton();
+        btnGenerar = new javax.swing.JButton();
+        txtK = new javax.swing.JTextField();
+        txtX0 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPaneNumerosP = new javax.swing.JTextPane();
+        lblNumerosGenerados = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtPaneMult = new javax.swing.JTextPane();
+        lblMultiplicaciones = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,29 +73,129 @@ public class A_Multiplicativo extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CONGRUENCIAL MULTIPLICATIVO");
+        jLabel1.setText("CONGRUENCIAL MULTIPLICATIVO 38");
+
+        txtG.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtG.setText("g");
+        txtG.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtGFocusGained(evt);
+            }
+        });
+
+        lblInfoSemilla.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        lblInfoSemilla.setText("Ingese un valor para X, y un valor para G");
+
+        btnOrdenar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnOrdenar.setText("Ordenar");
+        btnOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrdenarActionPerformed(evt);
+            }
+        });
+
+        btnGenerar.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        btnGenerar.setText("Generar");
+        btnGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarActionPerformed(evt);
+            }
+        });
+
+        txtK.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtK.setText("k");
+        txtK.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtKFocusGained(evt);
+            }
+        });
+
+        txtX0.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtX0.setText("x0");
+        txtX0.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtX0FocusGained(evt);
+            }
+        });
+
+        txtPaneNumerosP.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        jScrollPane1.setViewportView(txtPaneNumerosP);
+
+        lblNumerosGenerados.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        lblNumerosGenerados.setText("Numeros generados");
+
+        txtPaneMult.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        jScrollPane2.setViewportView(txtPaneMult);
+
+        lblMultiplicaciones.setFont(new java.awt.Font("sansserif", 0, 16)); // NOI18N
+        lblMultiplicaciones.setText("Modulos Generados");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(284, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(35, 35, 35))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(6, 6, 6)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(lblInfoSemilla, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(210, 210, 210)
+                .addComponent(txtK, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(90, 90, 90)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(100, 100, 100)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnGenerar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnOrdenar))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(txtX0, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtG, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(90, 90, 90)
+                    .addComponent(lblNumerosGenerados, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(98, 98, 98)
+                    .addComponent(lblMultiplicaciones)
+                    .addGap(99, 99, 99)
+                    .addComponent(btnVolver)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 214, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(35, 35, 35))
+                .addGap(6, 6, 6)
+                .addComponent(lblInfoSemilla)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerar)
+                    .addComponent(btnOrdenar))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtX0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(txtK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNumerosGenerados)
+                    .addComponent(lblMultiplicaciones)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnVolver))))
         );
 
         pack();
@@ -75,6 +207,70 @@ public class A_Multiplicativo extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    private void txtGFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGFocusGained
+        txtG.setText("");
+    }//GEN-LAST:event_txtGFocusGained
+
+    private void btnOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdenarActionPerformed
+        generadorM38.quick(cuadrados);
+        mostrarResultadosVentana(cuadrados, txtPaneNumerosP);
+
+        if (generadorM38.numerosRepetidos(cuadrados)) {
+            showMessageDialog(this, "La semilla fallo, repite numeros en el resutaldo "+generadorM38.getNumRep());
+        } else {
+            showMessageDialog(this, "La semilla no repite numeros");
+        }
+    }//GEN-LAST:event_btnOrdenarActionPerformed
+
+    private void btnGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarActionPerformed
+        try {
+            int x0 = Integer.parseInt(txtX0.getText());
+            int k = Integer.parseInt(txtK.getText());
+            int g = Integer.parseInt(txtG.getText());
+            cuadrados = generadorM38.AlgoritmoMultiplicativo38(x0, k, g);
+            mod = generadorM38.getModGenerados();
+
+            mostrarMultiplicaciones(mod, txtPaneMult);
+            mostrarResultadosVentana(cuadrados, txtPaneNumerosP);
+
+            btnOrdenar.setVisible(true);
+        } catch (NumberFormatException e) {
+            showMessageDialog(this, "La semilla solo puede ser un numero");
+        }
+    }//GEN-LAST:event_btnGenerarActionPerformed
+
+    private void txtKFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtKFocusGained
+        txtK.setText("");
+    }//GEN-LAST:event_txtKFocusGained
+
+    private void txtX0FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtX0FocusGained
+        txtX0.setText("");
+    }//GEN-LAST:event_txtX0FocusGained
+
+    public void mostrarResultadosVentana(float[] vector, JTextPane pane) {
+        String mostrar = "";
+        int pos = 1;
+        for (float numero : vector) {
+            String dig4 = ""+numero;
+            if(dig4.length()< 5){
+                mostrar += "Resultado " + pos + "-" + numero+"00" + "\n";
+            }else if(dig4.length() < 6){
+                mostrar += "Resultado " + pos + "-" + numero+"0" + "\n";
+            }else{mostrar += "Resultado " + pos + "-" + numero + "\n";}
+            pos++;
+        }
+        pane.setText(mostrar);
+    }
+
+    public void mostrarMultiplicaciones(long[] vector, JTextPane pane) {
+        String mostrar = "";
+        int pos = 1;
+        for (long numero : vector) {
+            mostrar += "Resultado " + pos + " " + numero + "\n";
+            pos++;
+        }
+        pane.setText(mostrar);
+    }
     /**
      * @param args the command line arguments
      */
@@ -111,7 +307,19 @@ public class A_Multiplicativo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGenerar;
+    private javax.swing.JButton btnOrdenar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblInfoSemilla;
+    private javax.swing.JLabel lblMultiplicaciones;
+    private javax.swing.JLabel lblNumerosGenerados;
+    private javax.swing.JTextField txtG;
+    private javax.swing.JTextField txtK;
+    private javax.swing.JTextPane txtPaneMult;
+    private javax.swing.JTextPane txtPaneNumerosP;
+    private javax.swing.JTextField txtX0;
     // End of variables declaration//GEN-END:variables
 }

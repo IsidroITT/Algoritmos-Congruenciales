@@ -1,3 +1,6 @@
+
+import javax.swing.JTextPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,6 +11,10 @@
  * @author isidro
  */
 public class A_NoLineal extends javax.swing.JFrame {
+
+    private algoritmosCongruenciales generadorCuadratico;
+    private float[] cuadrados;
+    private long[] mod;
 
     /**
      * Creates new form A_NoLineal
@@ -75,6 +82,30 @@ public class A_NoLineal extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
+    public void mostrarResultadosVentana(float[] vector, JTextPane pane) {
+        String mostrar = "";
+        int pos = 1;
+        for (float numero : vector) {
+            String dig4 = ""+numero;
+            if(dig4.length()< 5){
+                mostrar += "Resultado " + pos + "-" + numero+"00" + "\n";
+            }else if(dig4.length() < 6){
+                mostrar += "Resultado " + pos + "-" + numero+"0" + "\n";
+            }else{mostrar += "Resultado " + pos + "-" + numero + "\n";}
+            pos++;
+        }
+        pane.setText(mostrar);
+    }
+
+    public void mostrarMultiplicaciones(long[] vector, JTextPane pane) {
+        String mostrar = "";
+        int pos = 1;
+        for (long numero : vector) {
+            mostrar += "Resultado " + pos + " " + numero + "\n";
+            pos++;
+        }
+        pane.setText(mostrar);
+    }
     /**
      * @param args the command line arguments
      */

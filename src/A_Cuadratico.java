@@ -210,9 +210,6 @@ public class A_Cuadratico extends javax.swing.JFrame {
         try {
             int sem = Integer.parseInt(txtSemillaC.getText());
             int G = Integer.parseInt(txtG.getText());
-            if (sem < 1000) {
-                showMessageDialog(this, "La semilla debe ser un numero mayor a 3 digitos");
-            }
             cuadrados = generadorCuadratico.AlgortimoCuadratico(sem, G);
             mod = generadorCuadratico.getModGenerados();
 
@@ -226,7 +223,7 @@ public class A_Cuadratico extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenerarActionPerformed
 
     private void txtGFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtGFocusGained
-        // TODO add your handling code here:
+        txtG.setText("");
     }//GEN-LAST:event_txtGFocusGained
     
     public void mostrarResultadosVentana(float[] vector, JTextPane pane) {
@@ -234,9 +231,6 @@ public class A_Cuadratico extends javax.swing.JFrame {
         int pos = 1;
         for (float numero : vector) {
             String dig4 = ""+numero;
-            if (dig4.length()>=5){
-                dig4= dig4.substring(0,4);
-            }
             if(dig4.length()< 5){
                 mostrar += "Resultado " + pos + "-" + numero+"00" + "\n";
             }else if(dig4.length() < 6){

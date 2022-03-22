@@ -60,6 +60,7 @@ public class main extends javax.swing.JFrame {
         });
 
         lblInfo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        lblInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInfo.setText("Seleccione el metodo de generacion de numeros aleatorios");
 
         btnA_Aditivo.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -112,8 +113,8 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnA_LinealActionPerformed
 
     private void btnA_MultiplicativoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnA_MultiplicativoActionPerformed
-        A_Multiplicativo AM = new A_Multiplicativo();
-        AM.setVisible(true);
+        AM_Desicion AMD = new AM_Desicion();
+        AMD.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnA_MultiplicativoActionPerformed
 

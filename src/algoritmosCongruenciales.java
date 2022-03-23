@@ -181,32 +181,22 @@ public class algoritmosCongruenciales {
             System.out.println(numGenerados[i]);
         }
     }
+    
+    //Sumar resultados
+    public float sum(float[] v){
+        float r = 0;
+        for (float n: v){
+            r+= n;
+        }
+        return r;
+    }
 
     public static void main(String[] args) {
-        algoritmosCongruenciales z = new algoritmosCongruenciales(100);
+        algoritmosCongruenciales z = new algoritmosCongruenciales(32);
         System.out.println("----- ALGORTIMO LINEAL -----");
-        z.AlgoritmoLineal(50, 39, 1028, 10);
+        z.AlgoritmoLineal(23, 4, 31, 5);
         z.quick(z.numGenerados);
         z.mostrarNum();
-
-        System.out.println("----- ALGORTIMO MULTIPLICATIVO 38 -----");
-        z.AlgoritmoMultiplicativo38(177, 15, 9);
-        z.quick(z.numGenerados);
-        z.mostrarNum();
-        
-        System.out.println("----- ALGORTIMO MULTIPLICATIVO 58 -----");
-        z.AlgoritmoMultiplicativo58(177, 15, 9);
-        z.quick(z.numGenerados);
-        z.mostrarNum();
-        
-        System.out.println("----- ALGORTIMO NO LINEAL -----");
-        z.AlgortimoNOLineal(49, 58, 34, 49, 8);
-        z.quick(z.numGenerados);
-        z.mostrarNum();//        
-
-        System.out.println("----- ALGORTIMO CUADRATICO -----");
-        z.AlgortimoCuadratico(25, 16);
-        z.quick(z.numGenerados);
-        z.mostrarNum();
+        System.out.println(z.sum(z.numGenerados));
     }
 }
